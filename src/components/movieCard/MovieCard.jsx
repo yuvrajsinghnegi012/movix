@@ -3,12 +3,13 @@ import dayjs from "dayjs";
 import { useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 
-import "./style.scss";
 
-import Img from "../lazyLoadImages/Img";
+import Img from "../lazyLoadImages/img";
 import CircleRating from "../carousel/circleRating/CircleRating";
 import Genres from "../genres/Genres";
 import PosterFallback from "../../assets/no-poster.png";
+
+import "./style.scss";
 
 const MovieCard = ({ data, fromSearch, mediaType }) => {
     const { url } = useSelector((state) => state.home);
