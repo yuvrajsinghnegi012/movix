@@ -1,0 +1,37 @@
+import axios from "axios";
+
+const BASE_URL = "https://api.themoviedb.org/3";
+
+const TMDB_TOKEN = import.meta.env.VITE_APP_TOKEN_KEY;
+
+export const fetchDataFromApi = async (url, type, pageNum = 1, params) => {
+  const options = {
+    method: 'GET',
+    headers: {
+      accept: 'application/json',
+      Authorization: `Bearer ${TMDB_TOKEN}`
+    },
+    params
+  };
+
+  try {
+     // FOR HOME PAGE BG ALL MOVIES ==> 'https://api.themoviedb.org/3/trending/movie/day?language=en-US&page=1' 
+     
+     // FOR POPULAR Movies/TV URL ==> 'https://api.themoviedb.org/3/movie/popular?language=en-US&page=1'
+
+    // FOR IMAGES Statring URL ==> 'https://api.themoviedb.org/3/trending/movie/day'
+
+    // FOR TRENDING Movies/TV URL ==> 'https://api.themoviedb.org/3/trending/movie/day?language=en-US'
+    
+    // FOR DETAILS Movies/TV URL ==> 'https://api.themoviedb.org/3/tv/series_id?language=en-US'
+
+    // FOR GENRES Movies/TV URL ==> 'https://api.themoviedb.org/3/genre/tv/list?language=en'
+    
+    const { data } = await axios.get(BASE_URL + url+ `${type === "images" ? "" : ((type === "trending" || type === "details" || type === "genre") ? (type === "genre") ? "?language=en" : "?language=en-US" : type === "search" ? `&language=en-US&page=${pageNum}` : `?language=en-US&page=${pageNum}`)}`, options)
+
+    return data;
+  }
+  catch (err) {
+    return err;
+  }
+}
