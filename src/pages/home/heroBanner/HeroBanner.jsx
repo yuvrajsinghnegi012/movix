@@ -1,13 +1,12 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
-import "./style.scss";
 
 import useFetch from "../../../hooks/useFetch";
-
-import Img from "../../../components/lazyLoadImages/img";
+import Img from '../../../components/lazyLoadImages/Img';
 import ContentWrapper from "../../../components/contentWrapper/ContentWrapper";
 
+import "./style.scss";
 const HeroBanner = () => {
     const [background, setBackground] = useState("");
     const [query, setQuery] = useState("");
