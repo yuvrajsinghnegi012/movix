@@ -8,7 +8,7 @@ import MovieCard from "../../components/movieCard/MovieCard";
 import Spinner from "../../components/spinner/Spinner";
 import noResults from "../../assets/no-results.png";
 
-import './style.scss';
+import './Style.scss';
 
 const SearchResult = () => {
   const [data,setData] = useState(null);
