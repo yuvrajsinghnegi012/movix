@@ -18,7 +18,7 @@ const SearchResult = () => {
   
   const fetchInitialData = () =>{
     setLoading(true);
-    fetchDataFromApi(`/search/multi?query=${query}&include_adult=true`, "search" , pageNum).then((res)=>{
+    fetchDataFromApi(`/search/multi?query=${query}&include_adult=false`, "search" , pageNum).then((res)=>{
       setData(res);
       setPageNum((prev)=> prev+1);
       setLoading(false);

@@ -44,7 +44,7 @@ const Header = () => {
     }, [lastScrollY]);
 
     const searchQueryHandler = (event) => {
-        if (event.key === "Enter" && query.length > 0) {
+        if (event.key === "Enter" || event.type === "click" && query.length > 0) {
             navigate(`/search/${query}`);
             setTimeout(() => {
                 setShowSearch(false);
@@ -114,6 +114,7 @@ const Header = () => {
                                 onChange={(e) => setQuery(e.target.value)}
                                 onKeyUp={searchQueryHandler}
                             />
+                    <HiOutlineSearch onClick={searchQueryHandler} />
                             <VscChromeClose
                                 onClick={() => setShowSearch(false)}
                             />
